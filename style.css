@@ -28,7 +28,7 @@ html, body {
 .fondo-arte {
     position: absolute;
     inset: 0;
-    background-image: url("img/hollow-knight.jpg.jpg"); /* Verifica si en tu carpeta es .jpg o .jpg.jpg */
+    background-image: url("hollow-knight.jpg.jpg"); /* O el nombre de tu fondo si está suelto */
     background-size: cover;
     background-position: center;
     opacity: 0.35;
@@ -39,40 +39,6 @@ html, body {
 @keyframes flotarFondo {
     from { transform: scale(1.02); }
     to { transform: scale(1.06); }
-}
-
-/* =========================
-   HILO DE SEDA
-========================= */
-
-.hilo-seda {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.linea-hilo {
-    fill: none;
-    stroke: rgba(255, 255, 255, 0.65);
-    stroke-width: 2.5px;
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
-}
-
-.linea-brillo {
-    fill: none;
-    stroke: #ffffff;
-    stroke-width: 1.2px;
-    stroke-dasharray: 15 25;
-    animation: moverSeda 2.5s linear infinite;
-    opacity: 0.9;
-}
-
-@keyframes moverSeda {
-    from { stroke-dashoffset: 80; }
-    to { stroke-dashoffset: 0; }
 }
 
 /* =========================
@@ -290,10 +256,6 @@ html, body {
         width: 125px;
         right: 2%;
         bottom: 2%;
-    }
-
-    .linea-hilo, .linea-brillo {
-        stroke-width: 1.5px;
     }
 
     .nombre {
