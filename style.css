@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #05080c;
+    color: #eeeeeb;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.invitacion {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #05080c;
+}
+
+/* =========================
+   ILUSTRACIÓN DE FONDO OSCURO
+========================= */
+
+.fondo-arte {
+    position: absolute;
+    inset: 0;
+    background-image: url("img/hollow-knight.jpg.jpg"); /* Verifica si en tu carpeta es .jpg o .jpg.jpg */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    transform: scale(1.02);
+    animation: flotarFondo 8s ease-in-out infinite alternate;
+}
+
+@keyframes flotarFondo {
+    from { transform: scale(1.02); }
+    to { transform: scale(1.06); }
+}
+
+/* =========================
+   HILO DE SEDA
+========================= */
+
+.hilo-seda {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.linea-hilo {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.65);
+    stroke-width: 2.5px;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+}
+
+.linea-brillo {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.2px;
+    stroke-dasharray: 15 25;
+    animation: moverSeda 2.5s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes moverSeda {
+    from { stroke-dashoffset: 80; }
+    to { stroke-dashoffset: 0; }
+}
+
+/* =========================
+   PERSONAJES (SÓLIDOS Y SIN TRANSPARENCIA)
+========================= */
+
+.personaje {
+    position: absolute;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 1 !important;
+    filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.8));
+}
+
+/* HORNET: Izquierda Arriba */
+.hornet {
+    top: 6%;
+    left: 3%;
+    width: clamp(170px, 26vw, 350px);
+    animation: flotarHornet 3.5s ease-in-out infinite alternate;
+}
+
+/* CABALLERITO: Derecha Abajo */
+.knight {
+    bottom: 5%;
+    right: 3%;
+    width: clamp(160px, 24vw, 320px);
+    animation: flotarKnight 4s ease-in-out infinite alternate;
+}
+
+@keyframes flotarHornet {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-18px) rotate(-2deg); }
+}
+
+@keyframes flotarKnight {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-16px) rotate(2deg); }
+}
+
+/* =========================
+   NIEBLA AMBIENTAL
+========================= */
+
+.niebla {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: radial-gradient(ellipse at center, rgba(180, 200, 220, 0.1), transparent 70%);
+    filter: blur(20px);
+    animation: nieblaMovimiento 5s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes nieblaMovimiento {
+    from { opacity: 0.3; transform: scale(0.95); }
+    to { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* =========================
+   TEXTO Y NOMBRE DE SAID
+========================= */
+
+.contenido {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 650px;
+    text-align: center;
+    animation: aparecer 2s ease-out forwards;
+}
+
+.intro {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    color: #bfc2c1;
+    margin-bottom: 6px;
+}
+
+.nombre {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(60px, 13vw, 110px);
+    font-weight: normal;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 35px rgba(160, 190, 255, 0.4);
+    line-height: 1.1;
+}
+
+.subtitulo {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: #dedfdd;
+    margin-top: 10px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.ubicacion {
+    margin-top: 14px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+}
+
+.ubicacion a {
+    color: #e2cb83;
+    text-decoration: none;
+    border-bottom: 1px dashed #e2cb83;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.ubicacion a:hover {
+    color: #ffffff;
+    border-bottom-style: solid;
+    text-shadow: 0 0 8px rgba(226, 203, 131, 0.8);
+}
+
+/* =========================
+   CONTADOR
+========================= */
+
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.contador div {
+    min-width: 65px;
+    padding: 8px 12px;
+    border-top: 1px solid rgba(240, 240, 235, 0.35);
+    border-bottom: 1px solid rgba(240, 240, 235, 0.35);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+}
+
+.contador span {
+    display: block;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.contador small {
+    display: block;
+    margin-top: 2px;
+    font-family: Arial, sans-serif;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    color: #bfc2c1;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; filter: blur(12px); }
+    to { opacity: 1; filter: blur(0); }
+}
+
+/* =========================
+   EFECTOS RETRO VHS
+========================= */
+
+.vhs {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(255, 255, 255, 0.02) 4px
+    );
+}
+
+.viñeta {
+    position: fixed;
+    inset: 0;
+    z-index: 21;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.92) 100%);
+}
+
+.ruido {
+    position: fixed;
+    inset: -50px;
+    z-index: 22;
+    pointer-events: none;
+    opacity: 0.06;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.05) 3px);
+    animation: ruido 0.2s infinite;
+}
+
+@keyframes ruido {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* =========================================
+   AJUSTES PARA CELULARES
+   ========================================= */
+@media (max-width: 600px) {
+    .hornet {
+        width: 135px;
+        left: 2%;
+        top: 2%;
+    }
+
+    .knight {
+        width: 125px;
+        right: 2%;
+        bottom: 2%;
+    }
+
+    .linea-hilo, .linea-brillo {
+        stroke-width: 1.5px;
+    }
+
+    .nombre {
+        font-size: 48px;
+        letter-spacing: 0.12em;
+    }
+
+    .ubicacion {
+        font-size: 12px;
+    }
+
+    .contador {
+        gap: 6px;
+    }
+
+    .contador div {
+        min-width: 52px;
+        padding: 6px 6px;
+    }
+
+    .contador span {
+        font-size: 17px;
+    }
+}

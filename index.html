@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Cumpleaños Said</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="invitacion">
+        <!-- Fondo oscuro / textura -->
+        <div class="fondo-arte"></div>
+
+        <!-- Personajes animados sobrepuestos (100% Sólidos) -->
+        <img src="img/hornet.png" class="personaje hornet" alt="Hornet">
+        <img src="img/caballerito.png" class="personaje knight" alt="Caballerito">
+
+        <!-- Efecto de niebla ambiente -->
+        <div class="niebla"></div>
+
+        <!-- Contenido principal -->
+        <section class="contenido">
+            <p class="intro">ESTÁS INVITADO AL CUMPLEAÑOS DE</p>
+            
+            <h1 class="nombre">SAID</h1>
+            
+            <p class="subtitulo">27 DE SEPTIEMBRE DE 2026 • 12:00 PM</p>
+            
+            <p class="ubicacion">
+                📍 <a href="https://www.google.com/maps/search/?api=1&query=Calle+Coba+Av+Quintana+Roo+Farmacia+Similares" target="_blank">Calle Coba, Av. Quintana Roo (a un lado de Farmacia Similares)</a>
+            </p>
+
+            <!-- Contador de tiempo -->
+            <div class="contador">
+                <div>
+                    <span id="dias">00</span>
+                    <small>DÍAS</small>
+                </div>
+                <div>
+                    <span id="horas">00</span>
+                    <small>HORAS</small>
+                </div>
+                <div>
+                    <span id="minutos">00</span>
+                    <small>MINS</small>
+                </div>
+                <div>
+                    <span id="segundos">00</span>
+                    <small>SEGS</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Efectos retro VHS -->
+        <div class="vhs"></div>
+        <div class="viñeta"></div>
+        <div class="ruido"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
